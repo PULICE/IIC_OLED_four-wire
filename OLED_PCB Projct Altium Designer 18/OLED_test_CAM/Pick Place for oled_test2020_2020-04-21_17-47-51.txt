@@ -1,0 +1,36 @@
+Altium Designer Pick and Place Locations
+D:\Altium Designer 18\oled_test\Project Outputs for OLED_PCB_Project1\Pick Place for oled_test2020_2020-04-21_17-47-51.txt
+
+========================================================================================================================
+File Design Information:
+
+Date:       23/04/20
+Time:       12:15
+Revision:   Not in VersionControl
+Variant:    No variations
+Units used: mil
+
+Designator Comment         Layer    Footprint                  Center-X(mil) Center-Y(mil) Rotation Description 
+C10        4.7uF/16V       TopLayer 0603_C_JX                  590.410       393.735       90       ""          
+U1         SC662K-3.3_JX   TopLayer sc662k                     1062.982      787.402       180      ""          
+U4         S1              TopLayer S1                         1067.362      374.016       180      ""          
+U3         0.96-OLED-30Pin TopLayer new_OLED30P                583.069       157.480       180      ""          
+R6         4.7k/1%         TopLayer 0603_R_JX                  885.826       393.155       270      ""          
+R5         4.7k/1%         TopLayer 0603_R_JX                  787.484       392.855       90       ""          
+R4         4.7k/1%         TopLayer 0603_R_JX                  894.851       905.512       360      ""          
+R3         910k/1%         TopLayer 0603_R_JX                  894.851       807.086       0        ""          
+R2         4.7k/1%         TopLayer 0603_R_JX                  895.151       708.662       180      ""          
+R1         4.7k/1%         TopLayer 0603_R_JX                  894.851       610.236       0        ""          
+P2         M_2.54_1*4P_JX  TopLayer M_2.54_1*4P_JX             719.290       1062.992      180      ""          
+H1         Hole            TopLayer PCBComponent_1_-_duplicate 157.995       1023.621      0        ""          
+D1         1N4148W         TopLayer SOD-523_JX                 1034.250      590.550       360      ""          
+C11        2.2uF/50V       TopLayer 0603_C_JX                  688.752       393.735       90       ""          
+C9         1uF/50V         TopLayer 0603_C_JX                  492.068       393.735       90       ""          
+C8         1uF/50V         TopLayer 0603_C_JX                  1053.965      944.982       0        ""          
+C7         1uF/50V         TopLayer 0603_C_JX                  393.728       393.735       90       ""          
+C6         1uF/50V         TopLayer 0603_C_JX                  295.386       393.735       90       ""          
+C5         4.7uF/16V       TopLayer 0603_C_JX                  198.324       393.735       90       ""          
+C4         100nF/50V       TopLayer 0603_C_JX                  100.100       393.735       90       ""          
+C3         1uF/50V         TopLayer 0603_C_JX                  296.960       629.955       90       ""          
+C2         100nF/50V       TopLayer 0603_C_JX                  198.524       629.957       90       ""          
+C1         1uF/50V         TopLayer 0603_C_JX                  100.110       629.955       90       ""          
