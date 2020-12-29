@@ -1,32 +1,3 @@
-//////////////////////////////////////////////////////////////////////////////////	 
-//本程序只供学习使用，未经作者许可，不得用于其它任何用途
-//中景园电子
-//店铺地址：http://shop73023976.taobao.com/?spm=2013.1.0.0.M4PqC2
-//
-//  文 件 名   : main.c
-//  版 本 号   : v2.0
-//  作    者   : HuangKai
-//  生成日期   : 2014-0101
-//  最近修改   : 
-//  功能描述   : OLED 4接口演示例程(51系列)
-//              说明: 
-//              ----------------------------------------------------------------
-//              GND    电源地
-//              VCC  接5V或3.3v电源
-//              D0   接PD6（SCL）
-//              D1   接PD7（SDA）
-//              RES  接PD4
-//              DC   接PD5
-//              CS   接PD3               
-//              ----------------------------------------------------------------
-// 修改历史   :
-// 日    期   : 
-// 作    者   : HuangKai
-// 修改内容   : 创建文件
-//版权所有，盗版必究。
-//Copyright(C) 中景园电子2014/3/16
-//All rights reserved
-//******************************************************************************/
 #ifndef __OLED_H
 #define __OLED_H			  	 
 #include "sys.h"
@@ -43,33 +14,55 @@
 #define	Brightness	0xFF 
 #define X_WIDTH 	128
 #define Y_WIDTH 	64	    						  
-//-----------------OLED端口定义----------------  					   
-#define OLED_CS_Clr()  GPIO_ResetBits(GPIOA,GPIO_Pin_3)//CS
-#define OLED_CS_Set()  GPIO_SetBits(GPIOA,GPIO_Pin_3)
+/*-----------------OLED端口定义----------------*/ 
+#define RCC_OLEDPeriph_CLOCKa()   RCC_APB2PeriphClockCmd(uint32_t RCC_APB2Periph, FunctionalState NewState)
+#define RCC_OLEDPeriph_Porta     RCC_APB2Periph_GPIOA
+#define RCC_OLEDPeriph_Portb     RCC_APB2Periph_GPIOG
+#define OLED_GeneralPort         GPIOA
+#define OLED_ExtraPort           GPIOG
 
-#define OLED_RST_Clr() GPIO_ResetBits(GPIOA,GPIO_Pin_4)//RES
-#define OLED_RST_Set() GPIO_SetBits(GPIOA,GPIO_Pin_4)
+#define OLED_CS_Io               GPIO_Pin_3
+#define OLED_RST_Io              GPIO_Pin_4
+#define OLED_DC_Io               GPIO_Pin_5
 
-#define OLED_DC_Clr() GPIO_ResetBits(GPIOA,GPIO_Pin_5)//DC
-#define OLED_DC_Set() GPIO_SetBits(GPIOA,GPIO_Pin_5)
+#define OLED_SCLK_Io             GPIO_Pin_6//CLK或者叫DO
+#define OLED_SDIN_Io             GPIO_Pin_7//DIN或者叫DI
 
-#define OLED_WR_Clr() GPIO_ResetBits(GPIOG,GPIO_Pin_14)
-#define OLED_WR_Set() GPIO_SetBits(GPIOG,GPIO_Pin_14)
+/*在使用7线OLED且在模式0（OLED_MODE 0）时这 两个引脚的定义不必关心*/
+#define OLED_WR_Io              GPIO_Pin_14
+#define OLED_RD_Io              GPIO_Pin_13
 
-#define OLED_RD_Clr() GPIO_ResetBits(GPIOG,GPIO_Pin_13)
-#define OLED_RD_Set() GPIO_SetBits(GPIOG,GPIO_Pin_13)
+
+
+#define OLED_CS_Clr()  GPIO_ResetBits(OLED_GeneralPort ,OLED_CS_Io)//CS
+#define OLED_CS_Set()  GPIO_SetBits(OLED_GeneralPort ,OLED_CS_Io)
+
+#define OLED_RST_Clr() GPIO_ResetBits(OLED_GeneralPort ,OLED_RST_Io)//RES
+#define OLED_RST_Set() GPIO_SetBits(OLED_GeneralPort ,OLED_RST_Io)
+
+#define OLED_DC_Clr() GPIO_ResetBits(OLED_GeneralPort ,OLED_DC_Io)//DC
+#define OLED_DC_Set() GPIO_SetBits(OLED_GeneralPort ,OLED_DC_Io)
+
+
+
+
+#define OLED_WR_Clr() GPIO_ResetBits(OLED_ExtraPort,OLED_WR_Io)
+#define OLED_WR_Set() GPIO_SetBits(OLED_ExtraPort,OLED_WR_Io)
+
+#define OLED_RD_Clr() GPIO_ResetBits(OLED_ExtraPort,OLED_RD_Io)
+#define OLED_RD_Set() GPIO_SetBits(OLED_ExtraPort,OLED_RD_Io)
 
 
 
 //PC0~7,作为数据线
-#define DATAOUT(x) GPIO_Write(GPIOC,x);//输出  
-//使用4线串行接口时使用 
+//#define DATAOUT(x) GPIO_Write(GPIOC,x);//输出  
+//使用4线或7线串行接口时使用 
 
-#define OLED_SCLK_Clr() GPIO_ResetBits(GPIOA,GPIO_Pin_6)//CLK
-#define OLED_SCLK_Set() GPIO_SetBits(GPIOA,GPIO_Pin_6)
+#define OLED_SCLK_Clr() GPIO_ResetBits(OLED_GeneralPort ,OLED_SCLK_Io)
+#define OLED_SCLK_Set() GPIO_SetBits(OLED_GeneralPort ,OLED_SCLK_Io)
 
-#define OLED_SDIN_Clr() GPIO_ResetBits(GPIOA,GPIO_Pin_7)//DIN
-#define OLED_SDIN_Set() GPIO_SetBits(GPIOA,GPIO_Pin_7)
+#define OLED_SDIN_Clr() GPIO_ResetBits(OLED_GeneralPort ,OLED_SDIN_Io)
+#define OLED_SDIN_Set() GPIO_SetBits(OLED_GeneralPort ,OLED_SDIN_Io)
 
  		     
 #define OLED_CMD  0	//写命令
